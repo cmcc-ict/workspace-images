@@ -135,7 +135,9 @@ RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh |
 # above, we are adding the lazy nvm init to .bashrc, because one is executed on interactive shells, the other for non-interactive shells (e.g. plugin-host)
 COPY --chown=gitpod:gitpod nvm-lazy.sh /home/gitpod/.nvm/nvm-lazy.sh
 ENV PATH=$PATH:/home/gitpod/.nvm/versions/node/v${NODE_VERSION}/bin
+# set npm/yarn source from OneCode
 ENV npm config set registry http://package.onecode.ict.cmcc/repository/npm-group/
+ENV yarn config set registry http://package.onecode.ict.cmcc/repository/npm-group/
 
 ### Python ###
 LABEL dazzle/layer=lang-python
